@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,24 +54,7 @@
 <main role="main" class="container">
 
     <div class="starter-template">
-        <h1>Witaj na naszej stronie</h1>
     </div>
-
-    <form action="/videoPlay" method="get">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Podaj nazwę Video</label>
-            <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nazwa Video" required>
-            <small id="url" class="form-text text-muted">Nazwa Video będzie widoczna na naszej stronie.</small>
-        </div>
-        <div class="form-group">
-            <label for="exampleInputURL">Podaj URL embed z YouTube</label>
-            <input type="text" name="url" class="form-control" id="exampleInputURL" required>
-            <small id="url1" class="form-text text-muted">Przykładowy adres URL https://www.youtube.com/embed/A8LD3iTa4s8"</small>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
 
     <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -80,6 +63,16 @@
             </div>
         </div>
     </div>
+
+    <p th:text="${videoName.name}"/>
+    <p th:text="${videoName.url}"/>
+
+    <iframe width="560" height="315"
+            th:src="${videoName.url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <!--<iframe width="420" height="315"-->
+            <!--src="videoPlay.html">-->
+    <!--</iframe>-->
 
 
 </main><!-- /.container -->
