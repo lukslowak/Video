@@ -67,6 +67,12 @@
     <p th:text="${videoName.name}"/>
     <p th:text="${videoName.url}"/>
 
+    <ul th:each="task: ${videoPlay}">
+        <li th:text="${videoPlay}">
+
+        </li>
+    </ul>
+
     <iframe width="560" height="315"
             th:src="${videoName.url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 

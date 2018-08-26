@@ -23,15 +23,19 @@ public class HomeController {
         return "video";
     }
 
-
     @GetMapping("/videoPlay")
     public String add(@RequestParam String name,
                       @RequestParam String url,
                       ModelMap map) {
-        VideoName videoName = new VideoName();
-        videoName.setName(name);
-        videoName.setUrl(url);
+        VideoName videoName = new VideoName(name,url);
         map.put("videoName", videoName);
         return "videoPlay";
+    }
+
+    @GetMapping("/list")
+    public String getList(ModelMap modelMap){
+        modelMap.put("list",VideoName.getVideoList());
+        System.out.println("Hello"+VideoName.getVideoList());
+        return "list";
     }
 }
